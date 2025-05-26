@@ -1,73 +1,140 @@
-# Welcome to your Lovable project
 
-## Project info
+# NutriFácil - Sistema de Planejamento Alimentar Personalizado
 
-**URL**: https://lovable.dev/projects/b7f0c9e2-eacc-4aff-af97-1e5460857dce
+## 📋 Descrição do Projeto
 
-## How can I edit this code?
+O NutriFácil é um sistema web desenvolvido para auxiliar usuários no planejamento alimentar personalizado, considerando suas preferências dietéticas, objetivos pessoais e restrições alimentares. O sistema oferece recomendações baseadas em diferentes tipos de dieta e realiza cálculos nutricionais importantes.
 
-There are several ways of editing your application.
+## 🎯 Objetivos
 
-**Use Lovable**
+- **Personalização Completa**: Permitir ao usuário montar seu plano alimentar conforme suas preferências e objetivos
+- **Cálculos Nutricionais**: Implementar funcionalidades de cálculo de TMB, IMC e consumo de água
+- **Diversidade de Dietas**: Oferecer suporte a 4 tipos principais de dieta (Mediterrânea, Low Carb, Cetogênica, Vegetariana)
+- **Gestão de Restrições**: Considerar alergias e intolerâncias alimentares nas recomendações
+- **Interface Intuitiva**: Proporcionar uma experiência de usuário fluida e responsiva
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b7f0c9e2-eacc-4aff-af97-1e5460857dce) and start prompting.
+## 🚀 Funcionalidades
 
-Changes made via Lovable will be committed automatically to this repo.
+### 1. Seleção de Dietas
+- **Mediterrânea**: Foco em saúde cardiovascular com azeite, peixes, grãos integrais
+- **Low Carb**: Redução de carboidratos para emagrecimento e controle glicêmico
+- **Cetogênica**: Muito baixo carboidrato e alta gordura para perda rápida
+- **Vegetariana**: Sem carnes, incluindo ovos, laticínios e leguminosas
 
-**Use your preferred IDE**
+### 2. Coleta de Dados Pessoais
+- Peso, altura, idade e sexo
+- Objetivo (emagrecimento ou hipertrofia)
+- Alergias e intolerâncias (lactose, glúten, ovo, frutos do mar, etc.)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 3. Cálculos Automáticos
+- **TMB (Taxa de Metabolismo Basal)**: Usando fórmula de Mifflin-St Jeor
+  - Homens: TMB = 10×peso + 6,25×altura – 5×idade + 5
+  - Mulheres: TMB = 10×peso + 6,25×altura – 5×idade – 161
+- **IMC (Índice de Massa Corporal)**: peso / (altura/100)²
+- **Consumo de Água**: 35ml × peso(kg)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 4. Recomendações Personalizadas
+- Seleção de alimentos por categoria (proteínas, legumes, verduras, carboidratos)
+- Filtragem automática baseada em alergias
+- Recomendações específicas por tipo de dieta
 
-Follow these steps:
+## 🛠️ Tecnologias Utilizadas
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Frontend**: React 18 com TypeScript
+- **Styling**: Tailwind CSS
+- **Componentes**: shadcn/ui
+- **Ícones**: Lucide React
+- **Build Tool**: Vite
+- **Estado**: React Hooks (useState)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 📁 Estrutura do Projeto
 
-# Step 3: Install the necessary dependencies.
-npm i
+```
+src/
+├── components/           # Componentes reutilizáveis
+│   ├── Header.tsx       # Cabeçalho da aplicação
+│   ├── DietCard.tsx     # Card de seleção de dieta
+│   ├── UserForm.tsx     # Formulário de dados pessoais
+│   ├── FoodPreferences.tsx # Seleção de preferências alimentares
+│   └── Results.tsx      # Exibição dos resultados
+├── data/                # Dados estáticos
+│   └── foodData.ts      # Informações sobre dietas e alimentos
+├── types/               # Definições de tipos TypeScript
+│   └── nutrition.ts     # Interfaces do sistema
+├── utils/               # Funções utilitárias
+│   └── calculations.ts  # Cálculos nutricionais
+└── pages/
+    └── Index.tsx        # Página principal
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## 🎨 Design e UX
+
+### Paleta de Cores
+- **Verde**: Elementos principais e natureza
+- **Azul**: Informações e dados
+- **Laranja**: Energia e motivação
+- **Gradientes**: Transições suaves entre cores
+
+### Princípios de Design
+- **Hierarquia Visual**: Cards organizados e tipografia clara
+- **Responsividade**: Layout adaptável para mobile e desktop
+- **Feedback Visual**: Estados de hover e seleção
+- **Acessibilidade**: Contraste adequado e navegação intuitiva
+
+## 🧪 Funcionalidades de Teste
+
+### Casos de Teste Implementados
+1. **Validação de Formulário**: Campos obrigatórios e tipos corretos
+2. **Cálculos Matemáticos**: Verificação das fórmulas TMB, IMC e água
+3. **Filtragem de Alergias**: Remoção automática de alimentos problemáticos
+4. **Navegação**: Fluxo completo entre as telas
+5. **Responsividade**: Teste em diferentes tamanhos de tela
+
+### Cenários de Uso
+- Usuário com múltiplas alergias
+- Diferentes combinações de dieta e objetivo
+- Validação de dados extremos (peso/altura)
+
+## 📊 Resultados Esperados
+
+O sistema deve fornecer:
+- Plano alimentar personalizado baseado na dieta escolhida
+- Cálculos precisos de TMB, IMC e consumo de água
+- Recomendações filtradas por alergias
+- Interface intuitiva e responsiva
+- Experiência completa em 4 etapas simples
+
+## 🚀 Como Executar
+
+1. **Instalação das dependências**:
+```bash
+npm install
+```
+
+2. **Execução em modo desenvolvimento**:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+3. **Build para produção**:
+```bash
+npm run build
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🔮 Futuras Melhorias
 
-**Use GitHub Codespaces**
+- Integração com banco de dados para salvar planos
+- Sistema de login e perfis de usuário
+- Geração de PDF com o plano alimentar
+- Calculadora de macronutrientes
+- Integração com APIs de receitas
+- Sistema de notificações para hidratação
+- Acompanhamento de progresso
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 👥 Contribuição
 
-## What technologies are used for this project?
+Este projeto foi desenvolvido como sistema de planejamento nutricional personalizado, priorizando a experiência do usuário e a precisão dos cálculos nutricionais.
 
-This project is built with:
+## 📝 Licença
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/b7f0c9e2-eacc-4aff-af97-1e5460857dce) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Projeto desenvolvido para fins educacionais e de demonstração de habilidades em desenvolvimento web com React e TypeScript.
